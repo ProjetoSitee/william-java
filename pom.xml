@@ -37,7 +37,25 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>3.5.2</version>
+        <configuration>
+          <from>
+            <image>eclipse-temurin:21-jre-alpine@sha256:974b08960c5d96694c780e65b2d5705268ab1e1ca1a0dd0caf4ba6c3fe34d699</image>
+          </from>
+          <container>
+            <ports>
+              <port>8080</port>
+            </ports>
+            <user>1000:1000</user>
+          </container>
+          <outputPaths>
+            <tar>target/jib-image.tar</tar>
+          </outputPaths>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
-
